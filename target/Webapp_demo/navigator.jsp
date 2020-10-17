@@ -16,10 +16,14 @@
 <%--        =->   / ->  http://serwer.com/ --%>
 <%--        =->   / ->  http://serwer.com/kontekst/ --%>
 <ul>
+    <jsp:include page="headers.jsp"/>
     <li>
         <a href="${pageContext.request.contextPath}/">Home</a>
     </li>
     <li>
         <a href="${pageContext.request.contextPath}/multiplication.jsp">Tabliczka mnożenia</a>
+    </li>
+    <li>
+        <a href="${pageContext.request.contextPath}/students">Lista studentów</a>
     </li>
 </ul>
