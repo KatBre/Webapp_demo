@@ -47,7 +47,8 @@
             </table>
         </div>
         <div>
-            <a href="${pageContext.request.contextPath}/grade/form?studentId=${requestScope.studentToDisplay.id}">Add grade</a>
+            <a href="${pageContext.request.contextPath}/grade/form?studentId=${requestScope.studentToDisplay.id}">Add
+                grade</a>
             <table>
                 <tr>
                     <th>Id</th>
@@ -62,7 +63,10 @@
                         <td>${grade.value}</td>
                         <td>${grade.timeCreated}</td>
                         <td>${grade.subject.commonName}</td>
-                        <td></td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/grade/remove?gradeId=${grade.id}">Remove</a>
+                            <a href="${pageContext.request.contextPath}/grade/edit?gradeId=${grade.id}">Edit</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
