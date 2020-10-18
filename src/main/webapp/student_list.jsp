@@ -37,7 +37,8 @@
                 <td>
                     <a href="${pageContext.request.contextPath}/student/remove?stId=${student.id}">Remove</a>
                     <a href="${pageContext.request.contextPath}/student/details?id=${student.id}">Details</a>
-                </td>
+                    <a href="${pageContext.request.contextPath}/student/edit?id=${student.id}">Edit</a>
+                                    </td>
             </tr>
         </c:forEach>
     </table>

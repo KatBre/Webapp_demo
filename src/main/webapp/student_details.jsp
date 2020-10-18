@@ -33,6 +33,10 @@
                     <td>${requestScope.studentToDisplay.graduated}</td>
                 </tr>
                 <tr>
+                    <td>Average</td>
+                    <td>${requestScope.studentToDisplay.gradesAverage}</td>
+                </tr>
+                <tr>
                     <td>Home distance:</td>
                     <td>${requestScope.studentToDisplay.homeDistance}</td>
                 </tr>

@@ -29,8 +29,8 @@ public class GradeFormServlet extends HttpServlet {
         Optional<Student> studentOptional = studentEntityDao.findById(studentId, Student.class);
         if (studentOptional.isPresent()) { // jeśli student, któremu mamy dodać ocenę istnieje
             GradeSubject[] subjects = GradeSubject.values();
-            req.setAttribute("studentIdAttribute", studentId);
             req.setAttribute("availableSubjects", subjects);
+            req.setAttribute("studentIdAttribute", studentId);
             req.getRequestDispatcher("/grade_form.jsp").forward(req, resp);
         } else {
             redirectToStudentList(req, resp);

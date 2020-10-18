@@ -23,13 +23,15 @@
         <%--        </div>--%>
         <div>
             <label>Value:</label>
-            <input type="number" step="0.5" min="1" max="6" name="value_field"/>
+            <input type="number" step="0.5" min="1" max="6" name="value_field"
+                   value="${requestScope.modifiedGrade.value}"/>
         </div>
         <div>
             <label>Subject:</label>
             <select name="subject_field">
                 <c:forEach items="${requestScope.availableSubjects}" var="subject">
-                    <option value="${subject}">${subject.commonName}</option>
+                    <option value="${subject}"
+                            <c:if test="${requestScope.modifiedGrade.subject==subject}">selected</c:if>>${subject.commonName}</option>
                 </c:forEach>
             </select>
         </div>

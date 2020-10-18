@@ -2,6 +2,7 @@ package webappka.model;
 
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -26,7 +27,11 @@ public class Student {
     @Formula("(year(now())-year(birthDate))")
     private Integer age;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @Formula("(SELECT AVG(g.value) FROM grade g where g.student_id = id)")
+    private Double gradesAverage;
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @Cascade(org.hibernate.annotations.CascadeType.REMOVE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Grade> gradeSet;
