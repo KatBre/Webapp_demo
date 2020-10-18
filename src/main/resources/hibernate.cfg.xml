@@ -19,5 +19,6 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">false</property>
         <mapping class="webappka.model.Student"/>
+        <mapping class="webappka.model.Grade"/>
     </session-factory>
 </hibernate-configuration>
