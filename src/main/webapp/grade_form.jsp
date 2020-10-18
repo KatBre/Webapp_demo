@@ -20,6 +20,7 @@
         <%--        <div>--%>
         <%--            <label>Student id:</label>--%>
         <input type="hidden" value="${requestScope.studentIdAttribute}" readonly name="studentId"/>
+        <input type="hidden" value="${requestScope.modifiedGrade.id}" readonly name="modifiedGradeId"/>
         <%--        </div>--%>
         <div>
             <label>Value:</label>

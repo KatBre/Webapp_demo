@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @WebServlet("/grade/edit")
 public class GradeEditServlet extends HttpServlet {
-    private final EntityDao<Grade> gradeEntityDao = new EntityDao();
+    private final EntityDao<Grade> gradeEntityDao = new EntityDao<>();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String gradeIdString = req.getParameter("gradeId");
@@ -29,6 +29,7 @@ public class GradeEditServlet extends HttpServlet {
             Grade grade = gradeOptional.get();
             GradeSubject[] subjects = GradeSubject.values();
             req.setAttribute("availableSubjects", subjects);
+            req.setAttribute("studentIdAttribute", grade.getStudent().getId());
             req.setAttribute("modifiedGrade", grade);
 
             req.getRequestDispatcher("/grade_form.jsp").forward(req, resp);

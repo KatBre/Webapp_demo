@@ -39,6 +39,12 @@ public class GradeFormServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String modifiedIdString = req.getParameter("modifiedGradeId");
+        Long modifiedId = null;
+        if (modifiedIdString != null && !modifiedIdString.isEmpty()) {
+            modifiedId = Long.parseLong(modifiedIdString);
+        }
+
         String studentIdString = req.getParameter("studentId");
         Long studentId = Long.parseLong(studentIdString);
         Optional<Student> studentOptional = studentEntityDao.findById(studentId, Student.class);
@@ -47,6 +53,7 @@ public class GradeFormServlet extends HttpServlet {
             Student student = studentOptional.get();
 
             Grade grade = new Grade();
+            grade.setId(modifiedId);
             grade.setValue(Double.parseDouble(req.getParameter("value_field")));
             grade.setSubject(GradeSubject.valueOf(req.getParameter("subject_field")));
             grade.setStudent(student);
